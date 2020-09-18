@@ -1,0 +1,20 @@
+[compiler] sudo apt-get install build-essential
+[required] sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+[optional] sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
+cd ~/<my_working_directory>
+git clone https://github.com/opencv/opencv.git
+git clone https://github.com/opencv/opencv_contrib.git
+
+cd ~/opencv
+mkdir build
+cd build
+
+cmake -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -D CMAKE_BUILD_TYPE=Release -D WITH_GTK=ON -D OPENCV_ENABLE_NONFREE=ON ..
+make -j8
+sudo make install
+sudo ldconfig
+
+
+
+
